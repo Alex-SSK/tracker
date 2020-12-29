@@ -25,10 +25,12 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: Colors.orangeAccent,
       ),
       body: Form(
           key: _formKey,
           child: Card(
+            color: Colors.blueGrey,
             child: Padding(
               padding: EdgeInsets.all(16),
               child: Column(
