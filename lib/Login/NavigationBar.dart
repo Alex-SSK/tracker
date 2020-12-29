@@ -1,6 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:loginapp/loginpage.dart';
 import './Home_screen.dart';
+import './signin_page.dart';
 
+final FirebaseAuth _auth = FirebaseAuth.instance;
 class Nav extends StatefulWidget {
   @override
   _State createState() => _State();
@@ -25,6 +30,35 @@ class _State extends State<Nav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+        "어라(UH-RA)"),
+        backgroundColor: Colors.orangeAccent,
+        actions: <Widget>[
+          Builder(builder: (BuildContext context) {
+            return FlatButton(
+              child: const Text('Sign out'),
+              textColor: Theme.of(context).buttonColor,
+              onPressed: () async {
+                final User user = await _auth.currentUser;
+                if (user == null) {
+                  Scaffold.of(context).showSnackBar(const SnackBar(
+                    content: Text('No one has signed in.'),
+                  ));
+                  return;
+                }
+                _signOut();
+                final String uid = user.uid;
+                Scaffold.of(context).showSnackBar(SnackBar(
+                  content: Text(uid + ' has successfully signed out.'),
+                ));
+                await new Future.delayed(const Duration(seconds : 1));
+                _pushPage(context, login_page());    //Sign-In google을 했을 때, 홈화면으로 전환
+              },
+            );
+          })
+        ],
+      ),
       body: Center(
           child: _WidgetOptions.elementAt(_selectedIndex) //page변환 넣으면 될거같음
           ),
@@ -65,6 +99,14 @@ class _State extends State<Nav> {
         currentIndex: _selectedIndex,
         onTap: _onItemTap,
       ),
+    );
+  }
+  void _signOut() async {
+    await _auth.signOut();
+  }
+  void _pushPage(BuildContext context, Widget page) {
+    Navigator.of(context) /*!*/ .push(
+      MaterialPageRoute<void>(builder: (_) => page),
     );
   }
 }
