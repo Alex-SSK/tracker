@@ -21,8 +21,10 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: Colors.orangeAccent,
         actions: <Widget>[
           Builder(builder: (BuildContext context) {
             return FlatButton(
@@ -80,6 +82,7 @@ class _EmailPasswordFormState extends State<_EmailPasswordForm> {
     return Form(
         key: _formKey,
         child: Card(
+          color: Colors.blueGrey,
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -269,6 +272,7 @@ class _OtherProvidersSignInSectionState
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.blueGrey,
       child: Padding(
           padding: EdgeInsets.all(16),
           child: Column(
