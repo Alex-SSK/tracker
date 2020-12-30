@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_signin_button/button_builder.dart';
-import 'package:loginapp/loginpage.dart';
+import './loginpage.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -25,10 +25,12 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: Colors.orangeAccent,
       ),
       body: Form(
           key: _formKey,
           child: Card(
+            color: Colors.blueGrey,
             child: Padding(
               padding: EdgeInsets.all(16),
               child: Column(
