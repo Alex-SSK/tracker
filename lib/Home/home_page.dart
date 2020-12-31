@@ -27,7 +27,7 @@ class _State extends State<Nav> {
       //   title: Text('Spotler'),
       // ),
       body: Center(
-          child: _WidgetOptions.elementAt(_selectedIndex)   //page변환 넣으면 될거같음
+          child: _WidgetOptions.elementAt(_selectedIndex)   //page변환
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
