@@ -18,61 +18,87 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     Widget section1 = Container(
-        padding: const EdgeInsets.all(32),
-        child: Row(
-          children: [
-            Expanded(
-              /*1*/
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.only(bottom: 8),
-                    child: Text(
-                      '오늘의 운동 추천',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,),
-                    ),
+      padding: const EdgeInsets.all(32),
+      child: Row(
+        children: [
+          Expanded(
+            /*1*/
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 100, height: 100,
+                  child: Text(
+                    '오늘의 운동 추천',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,),
                   ),
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        _buildButtonColumn(Colors.black, Icons.call, '운동이름'),
-                        _buildButtonColumn(Colors.black, Icons.near_me, '운동이름'),
-                        _buildButtonColumn(Colors.black, Icons.share, '운동이름'),
-                        _buildButtonColumn(
-                            Colors.black, Icons.accessibility, '운동이름')
-                      ]
-                  ),
-                ],
-              ),
+                  padding: EdgeInsets.only(bottom: 15),
+                ),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      _buildButtonColumn(Colors.black, Icons.call, '운동이름'),
+                      _buildButtonColumn(Colors.black, Icons.near_me, '운동이름'),
+                      _buildButtonColumn(Colors.black, Icons.share, '운동이름'),
+                      _buildButtonColumn(
+                          Colors.black, Icons.accessibility, '운동이름')
+                    ]
+                ),
+              ],
             ),
-          ],
-        ),
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.black,
-            width: 2,
           ),
-          boxShadow: [BoxShadow(color: Colors.black45, blurRadius: 3)],
-          borderRadius: BorderRadius.circular(12),
-        )
+        ],
+      ),
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(240, 240, 240, 1),
+        border: Border.all(
+          color: Colors.black,
+          width: 2,
+        ),
+        boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 5)],
+        borderRadius: BorderRadius.circular(12),
+      ),
+      margin: EdgeInsets.all(10),
     );
 
 
     Widget section2 = Container(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Expanded(
-              child: CircleAvatar(
-                  backgroundColor: Colors.black,
+      child: Row(
+        children: [
+          Expanded(
+            /*1*/
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CircleAvatar(
+                  backgroundColor: Colors.yellow,
                   child: Text('운동량 그래프'),
-                  maxRadius: 30,
-              ),
-            )
-          ],
-        )
+                  maxRadius: 70,
+                ),
+                Column(
+                    children: [
+                      makeText('오늘은 이만큼 했어요!', width: 300, height: 30),
+                      makeText('케틀벨 스윙: 30회', width: 300, height: 30),
+                      makeText('레그 익스텐션: 30회', width: 300, height: 30),
+                      makeText('다른 운동: 30회', width: 300, height: 30)
+                    ]
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(240, 240, 240, 1),
+        border: Border.all(
+          color: Colors.black,
+          width: 2,
+        ),
+        boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 5)],
+        borderRadius: BorderRadius.circular(12),
+      ),
+      margin: EdgeInsets.all(10),
     );
 
     Widget section3 = Container(
@@ -123,6 +149,15 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget makeText(String title, {double width, double height}) {
+    return Container(
+      child: Center(child: Text(title, style: TextStyle(fontSize: 15.0), textAlign: TextAlign.start,),),
+      width: width,
+      height: height,
+      margin: EdgeInsets.all(1),
     );
   }
 }
