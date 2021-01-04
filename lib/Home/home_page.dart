@@ -103,15 +103,47 @@ class _MyHomePageState extends State<MyHomePage> {
 
     Widget section3 = Container(
       padding: const EdgeInsets.all(32),
-      child: Text(
-        'Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese '
-            'Alps. Situated 1,578 meters above sea level, it is one of the '
-            'larger Alpine Lakes. A gondola ride from Kandersteg, followed by a '
-            'half-hour walk through pastures and pine forest, leads you to the '
-            'lake, which warms to 20 degrees Celsius in the summer. Activities '
-            'enjoyed here include rowing, and riding the summer toboggan run.',
-        softWrap: true,
+      child: Row(
+        children: [
+          Expanded(
+            /*1*/
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 100, height: 100,
+                  child: Text(
+                    '오늘의 운동 추천',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,),
+                  ),
+                  padding: EdgeInsets.only(bottom: 15),
+                ),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      _buildButtonColumn(Colors.black, Icons.call, '운동이름'),
+                      _buildButtonColumn(Colors.black, Icons.near_me, '운동이름'),
+                      _buildButtonColumn(Colors.black, Icons.share, '운동이름'),
+                      _buildButtonColumn(
+                          Colors.black, Icons.accessibility, '운동이름')
+                    ]
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(240, 240, 240, 1),
+        border: Border.all(
+          color: Colors.black,
+          width: 2,
+        ),
+        boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 5)],
+        borderRadius: BorderRadius.circular(12),
+      ),
+      margin: EdgeInsets.all(10),
     );
 
     return MaterialApp(
