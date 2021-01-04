@@ -22,7 +22,7 @@ class login_page extends StatelessWidget {
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
-            letterSpacing: 3.0,
+            letterSpacing: 2.5,
             fontSize: 20,
           ),
         ),
