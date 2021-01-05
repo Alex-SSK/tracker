@@ -9,6 +9,7 @@ class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
+  int _selectedIndex = 0;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -101,6 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
       margin: EdgeInsets.all(10),
     );
 
+    //추천식단, 스토어 바로가기 버튼
     Widget section3 = Container(
       padding: const EdgeInsets.all(32),
       child: Row(
@@ -159,6 +161,30 @@ class _MyHomePageState extends State<MyHomePage> {
             section3,
           ],
         ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
+        selectedItemColor: Colors.black,
+        onTap: (int index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            title: Text('뛰어라'),
+          ),
+          BottomNavigationBarItem(
+            title: Text('들어라'),
+          ),
+          BottomNavigationBarItem(
+            title: Text('먹어라'),
+          ),
+          BottomNavigationBarItem(
+            title: Text('설정'),
+          ),
+        ]
+      ),
       ),
     );
   }
