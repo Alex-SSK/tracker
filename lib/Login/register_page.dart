@@ -32,7 +32,7 @@ class _RegisterPageState extends State<RegisterPage> {
           child: Card(
             color: Colors.blueGrey,
             child: Padding(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(17),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
