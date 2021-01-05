@@ -46,7 +46,7 @@ class login_page extends StatelessWidget {
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 3.0,
-                fontSize: 15,
+                fontSize: 16,
               ),
             ),
             alignment: Alignment.center,
